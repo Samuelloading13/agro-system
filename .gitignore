@@ -1,0 +1,19 @@
+# Config files (jangan upload password!)
+config.php
+
+# XAMPP folders
+xampp/
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Temporary files
+*.tmp
+*.log
