@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manajemen Kategori - AgroManager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🏷️ Manajemen Kategori</h1>
+            <nav>
+                <a href="index.html">Produk</a>
+                <a href="categories.html" class="active">Kategori</a>
+                <a href="suppliers.html">Pemasok</a>
+            </nav>
+        </header>
+
+        <main>
+            <div class="card">
+                <h2>Tambah Kategori Baru</h2>
+                <form id="categoryForm">
+                    <div class="form-group">
+                        <label for="name">Nama Kategori</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Simpan</button>
+                </form>
+            </div>
+            <div class="card">
+                <h2>Daftar Kategori</h2>
+                <div id="categoriesContainer"></div>
+            </div>
+        </main>
+    </div>
+
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Edit Kategori</h2>
+                <button onclick="closeModal()" class="close-btn">&times;</button>
+            </div>
+            <form id="editForm">
+                <input type="hidden" id="edit_id" name="id">
+                <div class="form-group">
+                    <label for="edit_name">Nama Kategori</label>
+                    <input type="text" id="edit_name" name="name" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Update</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="category_script.js"></script>
+</body>
+</html>

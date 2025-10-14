@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manajemen Pemasok - AgroManager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🚚 Manajemen Pemasok</h1>
+            <nav>
+                <a href="index.html">Produk</a>
+                <a href="categories.html">Kategori</a>
+                <a href="suppliers.html" class="active">Pemasok</a>
+            </nav>
+        </header>
+
+        <main>
+            <div class="card">
+                <h2>Tambah Pemasok Baru</h2>
+                <form id="supplierForm">
+                    <div class="form-grid">
+                        <div class="form-group"><label for="name">Nama Pemasok</label><input type="text" id="name" name="name" required></div>
+                        <div class="form-group"><label for="contact_person">Kontak Person</label><input type="text" id="contact_person" name="contact_person"></div>
+                        <div class="form-group"><label for="phone">Telepon</label><input type="tel" id="phone" name="phone"></div>
+                        <div class="form-group"><label for="address">Alamat</label><textarea id="address" name="address" rows="2"></textarea></div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Simpan</button>
+                </form>
+            </div>
+            <div class="card">
+                <h2>Daftar Pemasok</h2>
+                <div id="suppliersContainer"></div>
+            </div>
+        </main>
+    </div>
+    
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Edit Pemasok</h2>
+                <button onclick="closeModal()" class="close-btn">&times;</button>
+            </div>
+            <form id="editForm">
+                <input type="hidden" id="edit_id" name="id">
+                <div class="form-grid">
+                    <div class="form-group"><label for="edit_name">Nama Pemasok</label><input type="text" id="edit_name" name="name" required></div>
+                    <div class="form-group"><label for="edit_contact_person">Kontak Person</label><input type="text" id="edit_contact_person" name="contact_person"></div>
+                    <div class="form-group"><label for="edit_phone">Telepon</label><input type="tel" id="edit_phone" name="phone"></div>
+                    <div class="form-group"><label for="edit_address">Alamat</label><textarea id="edit_address" name="address" rows="2"></textarea></div>
+                </div>
+                <button type="submit" class="btn btn-primary">Update</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="supplier_script.js"></script>
+</body>
+</html>

@@ -1,161 +1,117 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+/* === Import Font dari Google Fonts === */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
+/* === Variabel Warna & Tema Utama === */
 :root {
-    --primary: #10b981;
-    --primary-dark: #059669;
-    --secondary: #34d399;
-    --danger: #ef4444;
+    --primary-light: #2dd4bf;
+    --primary: #14b8a6;
+    --primary-dark: #0d9488;
+    
+    --grey-lightest: #f8fafc;
+    --grey-light: #f1f5f9;
+    --grey: #e2e8f0;
+    --grey-dark: #94a3b8;
+    --text-color: #0f172a;
+    
+    --danger: #f43f5e;
     --warning: #f59e0b;
-    --dark: #1f2937;
-    --light: #f3f4f6;
-    --white: #ffffff;
-    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+    
+    --border-radius: 12px;
 }
 
+/* === Pengaturan Dasar & Tipografi === */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    min-height: 100vh;
-    position: relative;
-    color: var(--dark);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: var(--grey-lightest);
+    margin: 0;
+    color: var(--text-color);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
-.background-animation {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-    z-index: -1;
-    opacity: 0.9;
-}
-
-.background-animation::before {
-    content: '';
-    position: absolute;
-    width: 200%;
-    height: 200%;
-    top: -50%;
-    left: -50%;
-    background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
-    background-size: 50px 50px;
-    animation: moveBackground 20s linear infinite;
-}
-
-@keyframes moveBackground {
-    0% { transform: translate(0, 0); }
-    100% { transform: translate(50px, 50px); }
+h1, h2 {
+    font-weight: 700;
 }
 
 .container {
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 30px auto;
     padding: 0 20px;
 }
 
+/* === Header & Navigasi === */
 header {
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    padding: 30px 0;
-    box-shadow: var(--shadow-lg);
-    margin-bottom: 40px;
-    animation: slideDown 0.5s ease;
-}
-
-@keyframes slideDown {
-    from {
-        transform: translateY(-100%);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
-.header-content {
-    text-align: center;
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
-    margin-bottom: 10px;
-}
-
-.logo-icon {
-    font-size: 3em;
-    animation: rotate 3s ease-in-out infinite;
-}
-
-@keyframes rotate {
-    0%, 100% { transform: rotate(0deg); }
-    50% { transform: rotate(10deg); }
-}
-
-.logo h1 {
-    font-size: 2.5em;
-    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-.tagline {
-    color: #6b7280;
-    font-size: 1.1em;
-}
-
-.form-section {
-    background: var(--white);
+    background: linear-gradient(45deg, var(--primary), var(--primary-dark));
+    color: white;
     padding: 30px;
-    border-radius: 15px;
+    text-align: center;
+    border-radius: var(--border-radius);
+    margin-bottom: 2.5rem;
     box-shadow: var(--shadow-lg);
-    margin-bottom: 40px;
-    animation: fadeInUp 0.6s ease;
 }
 
-@keyframes fadeInUp {
-    from {
-        transform: translateY(30px);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
 }
 
-.form-section h2 {
-    color: var(--dark);
-    margin-bottom: 25px;
-    font-size: 1.8em;
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
 }
 
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+    border: 1px solid transparent;
+}
+
+nav a:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+nav a.active {
+    background-color: #fff;
+    color: var(--primary-dark);
+    box-shadow: var(--shadow-sm);
+}
+
+/* === Kartu (Layout Utama) === */
+.card {
+    background: white;
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-md);
+    margin-bottom: 2.5rem;
+    border: 1px solid var(--grey);
+}
+
+/* === Form & Input === */
 .form-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    margin-bottom: 20px;
+    gap: 25px;
 }
 
 .form-group {
-    margin-bottom: 20px;
+    margin-bottom: 1.25rem;
 }
 
 .form-group label {
     display: block;
     margin-bottom: 8px;
     font-weight: 600;
-    color: var(--dark);
+    font-size: 0.9rem;
 }
 
 .form-group input,
@@ -163,10 +119,12 @@ header {
 .form-group textarea {
     width: 100%;
     padding: 12px 15px;
-    border: 2px solid #e5e7eb;
+    border: 1px solid var(--grey);
     border-radius: 8px;
-    font-size: 1em;
-    transition: all 0.3s ease;
+    box-sizing: border-box;
+    font-size: 1rem;
+    font-family: 'Inter', sans-serif;
+    transition: border-color 0.3s, box-shadow 0.3s;
 }
 
 .form-group input:focus,
@@ -174,196 +132,101 @@ header {
 .form-group textarea:focus {
     outline: none;
     border-color: var(--primary);
-    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+    box-shadow: 0 0 0 4px rgba(20, 184, 166, 0.1);
 }
 
-.form-group textarea {
-    resize: vertical;
-    font-family: inherit;
-}
-
+/* === Tombol (Buttons) === */
 .btn {
-    padding: 12px 30px;
+    padding: 12px 28px;
     border: none;
     border-radius: 8px;
-    font-size: 1em;
-    font-weight: 600;
     cursor: pointer;
-    transition: all 0.3s ease;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.2s ease;
     display: inline-flex;
     align-items: center;
-    justify-content: center;
     gap: 8px;
 }
 
-.btn-primary {
-    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-    color: var(--white);
-}
-
-.btn-primary:hover {
+.btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 15px rgba(16, 185, 129, 0.3);
+    box-shadow: var(--shadow-md);
 }
 
-.btn-secondary {
-    background: #6b7280;
-    color: var(--white);
-}
+.btn-primary { background: var(--primary); color: white; }
+.btn-primary:hover { background: var(--primary-dark); }
+.btn-warning { background: var(--warning); color: white; }
+.btn-danger { background: var(--danger); color: white; }
 
-.btn-secondary:hover {
-    background: #4b5563;
-}
-
-.btn-danger {
-    background: var(--danger);
-    color: var(--white);
-    padding: 8px 16px;
-    font-size: 0.9em;
-}
-
-.btn-danger:hover {
-    background: #dc2626;
-    transform: translateY(-2px);
-}
-
-.btn-warning {
-    background: var(--warning);
-    color: var(--white);
-    padding: 8px 16px;
-    font-size: 0.9em;
-}
-
-.btn-warning:hover {
-    background: #d97706;
-    transform: translateY(-2px);
-}
-
-.products-section {
-    background: var(--white);
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: var(--shadow-lg);
-    margin-bottom: 40px;
-    animation: fadeInUp 0.7s ease;
-}
-
-.section-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 25px;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-.section-header h2 {
-    font-size: 1.8em;
-    color: var(--dark);
-}
-
-.search-box input {
-    padding: 10px 20px;
-    border: 2px solid #e5e7eb;
-    border-radius: 25px;
-    width: 300px;
-    font-size: 1em;
-    transition: all 0.3s ease;
-}
-
-.search-box input:focus {
-    outline: none;
-    border-color: var(--primary);
-    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
-}
-
+/* === Kartu Produk === */
 .products-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
     gap: 25px;
 }
 
 .product-card {
-    background: linear-gradient(135deg, #ffffff 0%, #f9fafb 100%);
-    border: 2px solid #e5e7eb;
-    border-radius: 12px;
-    padding: 20px;
-    transition: all 0.3s ease;
-    animation: scaleIn 0.4s ease;
-}
-
-@keyframes scaleIn {
-    from {
-        transform: scale(0.9);
-        opacity: 0;
-    }
-    to {
-        transform: scale(1);
-        opacity: 1;
-    }
+    background: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+    border: 1px solid var(--grey);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .product-card:hover {
     transform: translateY(-5px);
     box-shadow: var(--shadow-lg);
-    border-color: var(--primary);
 }
 
-.product-header {
+.product-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+.product-card-content {
+    padding: 20px;
+    flex-grow: 1;
     display: flex;
-    justify-content: space-between;
-    align-items: start;
-    margin-bottom: 15px;
+    flex-direction: column;
 }
 
-.product-header h3 {
-    color: var(--dark);
-    font-size: 1.3em;
-    flex: 1;
+.product-card h3 { margin: 0 0 10px 0; font-size: 1.25rem; }
+.product-card .price { font-size: 1.5rem; font-weight: bold; color: var(--primary-dark); margin-bottom: 10px; }
+.product-card .stock { font-size: 0.9rem; color: #555; margin-bottom: 15px; }
+.product-actions { margin-top: auto; padding-top: 15px; display: flex; gap: 10px; }
+
+/* === Tabel Data (Kategori & Pemasok) === */
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
 }
 
-.category-badge {
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
-    color: var(--white);
-    padding: 5px 12px;
-    border-radius: 20px;
-    font-size: 0.85em;
-    font-weight: 600;
+.data-table th, .data-table td {
+    padding: 15px;
+    border-bottom: 1px solid var(--grey);
+    text-align: left;
 }
 
-.product-info {
-    margin: 15px 0;
-    color: #6b7280;
-    line-height: 1.6;
+.data-table th {
+    background-color: var(--grey-lightest);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
-.product-info p {
-    margin: 8px 0;
+.data-table tr:last-child td {
+    border-bottom: none;
 }
 
-.price {
-    font-size: 1.5em;
-    color: var(--primary);
-    font-weight: 700;
-}
+.data-table .actions { display: flex; gap: 8px; }
 
-.stock {
-    display: inline-block;
-    background: #dbeafe;
-    color: #1e40af;
-    padding: 4px 10px;
-    border-radius: 15px;
-    font-size: 0.9em;
-    font-weight: 600;
-}
-
-.product-actions {
-    display: flex;
-    gap: 10px;
-    margin-top: 15px;
-}
-
-/* Modal */
+/* === Modal (Pop-up Edit) === */
 .modal {
     display: none;
     position: fixed;
@@ -372,108 +235,67 @@ header {
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
+    background: rgba(15, 23, 42, 0.6);
     backdrop-filter: blur(5px);
-    animation: fadeIn 0.3s ease;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    overflow-y: auto;
+    padding: 40px 0;
 }
 
 .modal-content {
-    background: var(--white);
-    margin: 5% auto;
-    padding: 0;
-    border-radius: 15px;
+    background: white;
+    margin: 0 auto;
+    padding: 30px;
+    border-radius: var(--border-radius);
     width: 90%;
     max-width: 700px;
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
-    animation: slideIn 0.3s ease;
-}
-
-@keyframes slideIn {
-    from {
-        transform: translateY(-50px);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
+    box-shadow: var(--shadow-lg);
 }
 
 .modal-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 25px 30px;
-    border-bottom: 2px solid #e5e7eb;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--grey);
 }
 
 .modal-header h2 {
-    color: var(--dark);
-    font-size: 1.8em;
+    margin: 0;
 }
 
-.close {
-    color: #9ca3af;
-    font-size: 35px;
-    font-weight: bold;
+.close-btn {
+    border: none;
+    background: none;
+    font-size: 2rem;
     cursor: pointer;
-    transition: all 0.3s ease;
+    color: var(--grey-dark);
+    transition: color 0.3s ease;
 }
 
-.close:hover {
-    color: var(--danger);
-    transform: rotate(90deg);
+.close-btn:hover {
+    color: var(--text-color);
 }
 
-#editForm {
-    padding: 30px;
-}
-
-.modal-actions {
-    display: flex;
-    gap: 15px;
-    justify-content: flex-end;
-    margin-top: 25px;
-}
-
-footer {
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    padding: 20px 0;
-    text-align: center;
-    color: #6b7280;
-    margin-top: 40px;
-}
-
+/* === Media Query untuk Mobile === */
 @media (max-width: 768px) {
-    .logo h1 {
-        font-size: 2em;
+    .container {
+        margin-top: 15px;
+        margin-bottom: 15px;
     }
-    
-    .form-grid {
-        grid-template-columns: 1fr;
+    header {
+        padding: 20px;
     }
-    
-    .products-grid {
-        grid-template-columns: 1fr;
+    header h1 {
+        font-size: 1.8rem;
     }
-    
-    .section-header {
-        flex-direction: column;
-        align-items: stretch;
+    nav {
+        gap: 8px;
     }
-    
-    .search-box input {
-        width: 100%;
+    nav a {
+        padding: 8px 12px;
     }
-    
-    .modal-content {
-        width: 95%;
-        margin: 10% auto;
+    .card, .modal-content {
+        padding: 20px;
     }
 }
